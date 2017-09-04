@@ -1,0 +1,43 @@
+{
+  "body" : {
+    "type" : "json",
+    "payload" : {
+      "error" : "the thing you looked for wasn't found",
+      "error_code" : "404"
+    }
+  },
+  "response" : {
+    "mimeType" : "text\/html",
+    "statusCode" : 404,
+    "allHeaderFields" : {
+      "Server" : "Apache\/2.2.22 (Ubuntu)",
+      "Content-Type" : "text\/html",
+      "Connection" : "close",
+      "Date" : "Sat, 11 Mar 2017 22:33:37 GMT",
+      "Content-Encoding" : "gzip",
+      "Content-Length" : "83",
+      "Vary" : "Accept-Encoding"
+    },
+    "url" : {
+      "path" : "\/v1\/notes\/invalid-identifier",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https"
+    },
+    "suggestedFilename" : "invalid-identifier.html",
+    "expectedContentLength" : 70
+  },
+  "name" : "GetNoteRequestInvalidIdentifier",
+  "request" : {
+    "url" : {
+      "path" : "\/v1\/notes\/invalid-identifier",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https"
+    },
+    "httpMethod" : "GET",
+    "allHTTPHeaderFields" : {
+      "Content-Type" : "application\/json"
+    }
+  }
+}

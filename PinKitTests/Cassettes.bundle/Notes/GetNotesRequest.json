@@ -1,0 +1,54 @@
+{
+  "body" : {
+    "type" : "json",
+    "payload" : {
+      "count" : 1,
+      "notes" : [
+        {
+          "id" : "c2f024f1eda0f199bfca",
+          "hash" : "cb2bfe8b43362eb5b56b",
+          "title" : "Testnotes",
+          "length" : "962",
+          "updated_at" : "2015-02-14 18:42:22",
+          "created_at" : "2015-02-14 18:42:22"
+        }
+      ]
+    }
+  },
+  "response" : {
+    "mimeType" : "text\/plain",
+    "url" : {
+      "path" : "\/v1\/notes\/list",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https"
+    },
+    "statusCode" : 200,
+    "suggestedFilename" : "list.txt",
+    "textEncodingName" : "utf-8",
+    "expectedContentLength" : 189,
+    "allHeaderFields" : {
+      "Server" : "Apache\/2.2.22 (Ubuntu)",
+      "Content-Type" : "text\/plain; charset=utf-8",
+      "Vary" : "Accept-Encoding",
+      "Date" : "Sat, 11 Mar 2017 22:32:10 GMT",
+      "Content-Encoding" : "gzip",
+      "Keep-Alive" : "timeout=5, max=100",
+      "Content-Length" : "156",
+      "Connection" : "Keep-Alive"
+    }
+  },
+  "name" : "GetNotesRequest",
+  "request" : {
+    "url" : {
+      "path" : "\/v1\/notes\/list",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https"
+    },
+    "httpMethod" : "GET",
+    "allHTTPHeaderFields" : {
+      "Content-Type" : "application\/json"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "body" : {
+    "type" : "json",
+    "payload" : [
+      {
+        "popular" : [
+          "design",
+          "goldfrapp",
+          "music"
+        ]
+      },
+      {
+        "recommended" : [
+          "music",
+          "design",
+          "flash",
+          "goldfrapp",
+          "inspiration",
+          "video",
+          "webdesign",
+          "band",
+          "Bookmarks",
+          "Bookmarks_Menu"
+        ]
+      }
+    ]
+  },
+  "response" : {
+    "mimeType" : "text\/plain",
+    "url" : {
+      "path" : "\/v1\/posts\/suggest",
+      "query" : "url=http:\/\/www.goldfrapp.com&format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https"
+    },
+    "statusCode" : 200,
+    "suggestedFilename" : "suggest.txt",
+    "textEncodingName" : "utf-8",
+    "expectedContentLength" : 171,
+    "allHeaderFields" : {
+      "Server" : "Apache\/2.2.22 (Ubuntu)",
+      "Content-Type" : "text\/plain; charset=utf-8",
+      "Vary" : "Accept-Encoding",
+      "Date" : "Sat, 11 Mar 2017 22:30:56 GMT",
+      "Content-Encoding" : "gzip",
+      "Keep-Alive" : "timeout=5, max=100",
+      "Content-Length" : "136",
+      "Connection" : "Keep-Alive"
+    }
+  },
+  "name" : "GetSuggestedTagsRequest",
+  "request" : {
+    "url" : {
+      "path" : "\/v1\/posts\/suggest",
+      "query" : "url=http:\/\/www.goldfrapp.com&format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https"
+    },
+    "httpMethod" : "GET",
+    "allHTTPHeaderFields" : {
+      "Content-Type" : "application\/json"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "additionalRequestHeaders" : {
+    "Accept-Language" : "en",
+    "User-Agent" : "PinKit\/1",
+    "Accept-Encoding" : "gzip;q=1.0,compress;q=0.5"
+  },
+  "body" : {
+    "type" : "json",
+    "payload" : {
+      "result" : "662ea47bdf3d2563f047"
+    }
+  },
+  "response" : {
+    "mimeType" : "text\/plain",
+    "url" : {
+      "password" : "nexus-6",
+      "path" : "\/v1\/user\/api_token",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https",
+      "user" : "rachel.rosen"
+    },
+    "statusCode" : 200,
+    "suggestedFilename" : "api_token.txt",
+    "textEncodingName" : "utf-8",
+    "expectedContentLength" : 34,
+    "allHeaderFields" : {
+      "Date" : "Sat, 02 Sep 2017 13:50:41 GMT",
+      "Keep-Alive" : "timeout=5, max=100",
+      "Content-Length" : "34",
+      "Content-Type" : "text\/plain; charset=utf-8",
+      "Connection" : "Keep-Alive",
+      "Server" : "Apache\/2.4.7 (Ubuntu)"
+    }
+  },
+  "name" : "AuthenticationRequest_v2",
+  "request" : {
+    "url" : {
+      "password" : "nexus-6",
+      "path" : "\/v1\/user\/api_token",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https",
+      "user" : "rachel.rosen"
+    },
+    "httpMethod" : "GET",
+    "allHTTPHeaderFields" : {
+      "Content-Type" : "application\/json"
+    }
+  }
+}

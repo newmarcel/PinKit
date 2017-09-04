@@ -1,0 +1,47 @@
+{
+  "additionalRequestHeaders" : {
+    "Accept-Language" : "en",
+    "User-Agent" : "PinKit\/1",
+    "Accept-Encoding" : "gzip;q=1.0,compress;q=0.5"
+  },
+  "body" : {
+    "type" : "data",
+    "payload" : "NDAxIEZvcmJpZGRlbg=="
+  },
+  "response" : {
+    "mimeType" : "text\/html",
+    "statusCode" : 401,
+    "allHeaderFields" : {
+      "Date" : "Sat, 02 Sep 2017 14:12:52 GMT",
+      "Content-Type" : "text\/html",
+      "Connection" : "close",
+      "Content-Length" : "13",
+      "Server" : "Apache\/2.4.7 (Ubuntu)"
+    },
+    "url" : {
+      "password" : "12345678",
+      "path" : "\/v1\/user\/api_token",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https",
+      "user" : "hopefully-not-a-real-user"
+    },
+    "suggestedFilename" : "api_token.html",
+    "expectedContentLength" : 13
+  },
+  "name" : "AuthenticationRequestFailed",
+  "request" : {
+    "url" : {
+      "password" : "12345678",
+      "path" : "\/v1\/user\/api_token",
+      "query" : "format=json",
+      "host" : "api.pinboard.in",
+      "scheme" : "https",
+      "user" : "hopefully-not-a-real-user"
+    },
+    "httpMethod" : "GET",
+    "allHTTPHeaderFields" : {
+      "Content-Type" : "application\/json"
+    }
+  }
+}
