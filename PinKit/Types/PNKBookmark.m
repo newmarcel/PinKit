@@ -48,6 +48,53 @@
     return self;
 }
 
+#pragma mark - Equality
+
+- (BOOL)isEqual:(id)object
+{
+    PNKBookmark *rhs = (PNKBookmark *)object;
+    if(self == rhs)
+    {
+        return YES;
+    }
+    if(!rhs || ![rhs isKindOfClass:[self class]])
+    {
+        return NO;
+    }
+    return [self isEqualToBookmark:rhs];
+}
+
+- (BOOL)isEqualToBookmark:(PNKBookmark *)bookmark
+{
+    NSParameterAssert(bookmark);
+    
+    return [self.title isEqualToString:bookmark.title]
+        && [self.descriptionText isEqualToString:bookmark.descriptionText]
+        && [self.URL isEqual:bookmark.URL];
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    PNKMutableBookmark *mutableCopy = [[PNKMutableBookmark alloc] initWithTitle:self.title
+                                                                            URL:[self.URL copy]
+                                                                descriptionText:self.descriptionText
+                                                                           tags:[self.tags copy]
+                                       ];
+    mutableCopy.hashText = self.hashText;
+    mutableCopy.meta = self.meta;
+    mutableCopy.createdAt = [self.createdAt copy];
+    mutableCopy.shared = [self isShared];
+    mutableCopy.read = [self isRead];
+    return mutableCopy;
+}
+
 @end
 
 @implementation PNKBookmark (PNKDictionaryRepresentable)
