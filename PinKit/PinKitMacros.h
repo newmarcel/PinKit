@@ -24,4 +24,13 @@
 
 #define fatalError(message) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:(NSString *)(message) userInfo:nil]
 
+static inline BOOL PNKIsEqual(id _Nullable lhs, id _Nullable rhs)
+{
+    if(lhs == nil)
+    {
+        return (rhs == nil);
+    }
+    return [lhs isEqual:rhs];
+}
+
 #endif /* PINKIT_MACROS_H */

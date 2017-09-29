@@ -7,6 +7,7 @@
 //
 
 #import "PNKNote.h"
+#import "PinKitMacros.h"
 #import "NSDateFormatter+PNKPinboard.h"
 
 @interface PNKNote ()
@@ -21,6 +22,43 @@
 @end
 
 @implementation PNKNote
+
+#pragma mark - Equality
+
+- (BOOL)isEqual:(id)object
+{
+    PNKNote *rhs = (PNKNote *)object;
+    if(self == rhs)
+    {
+        return YES;
+    }
+    if(!rhs || ![rhs isKindOfClass:[self class]])
+    {
+        return NO;
+    }
+    return [self isEqualToNote:rhs];
+}
+
+- (BOOL)isEqualToNote:(PNKNote *)note
+{
+    NSParameterAssert(note);
+    
+    return PNKIsEqual(self.identifier, note.identifier)
+        && PNKIsEqual(self.title, note.title)
+        && PNKIsEqual(self.hashText, note.hashText)
+        && PNKIsEqual(self.createdAt, note.createdAt)
+        && PNKIsEqual(self.updatedAt, note.updatedAt)
+        && self.length == note.length
+        && PNKIsEqual(self.text, note.text);
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
 @end
 
 @implementation PNKNote (PNKDictionaryRepresentable)

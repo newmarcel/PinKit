@@ -7,6 +7,7 @@
 //
 
 #import "PNKBookmark.h"
+#import "PinKitMacros.h"
 #import "PNKPinboardBool.h"
 #import "NSDateFormatter+PNKPinboard.h"
 
@@ -70,9 +71,9 @@ static NSString * const PNKBookmarkTagsSeparator = @" ";
 {
     NSParameterAssert(bookmark);
     
-    return [self.title isEqualToString:bookmark.title]
-        && [self.descriptionText isEqualToString:bookmark.descriptionText]
-        && [self.URL isEqual:bookmark.URL];
+    return PNKIsEqual(self.title, bookmark.title)
+        && PNKIsEqual(self.URL, bookmark.URL)
+        && PNKIsEqual(self.descriptionText, bookmark.descriptionText);
 }
 
 #pragma mark - NSCopying
@@ -157,8 +158,8 @@ static NSString * const PNKBookmarkTagsSeparator = @" ";
     if(self.meta != nil) { dict[kKeyMeta] = self.meta; }
     dict[kKeyTags] = [self.tags componentsJoinedByString:PNKBookmarkTagsSeparator];
     dict[kKeyCreatedAt] = [NSDateFormatter.pnk_UTCDateFormatter stringFromDate:self.createdAt];
-    dict[kKeyShared] = @([self isShared]);
-    dict[kKeyUnread] = @(![self isRead]);
+    dict[kKeyShared] = PNKPinboardBoolStringFromBool([self isShared]);
+    dict[kKeyUnread] = PNKPinboardBoolStringFromBool(![self isRead]);
     
     return [NSDictionary dictionaryWithDictionary:dict];
 }
