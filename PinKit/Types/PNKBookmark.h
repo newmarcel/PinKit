@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  A Pinboard bookmark.
  */
-@interface PNKBookmark : NSObject
+@interface PNKBookmark : NSObject <NSCopying, NSMutableCopying>
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly, nullable) NSString *descriptionText;
 @property (nonatomic, readonly) NSString *hashText;
@@ -48,9 +48,20 @@ NS_ASSUME_NONNULL_BEGIN
               descriptionText:(nullable NSString *)descriptionText
                          tags:(NSArray<NSString *> *)tags;
 
+#pragma mark Equality
+
+/**
+ Returns a Boolean value that indicates whether the receiver and the given bookmark are equal.
+
+ @param bookmark A bookmark to be compared to the receiver.
+ @return YES if bookmark is equal to the receiver.
+ */
+- (BOOL)isEqualToBookmark:(PNKBookmark *)bookmark;
+
 @end
 
 @interface PNKBookmark (PNKDictionaryRepresentable)
+@property (nonatomic, readonly) NSDictionary<NSString *, id> *dictionaryRepresentation;
 - (instancetype)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary;
 @end
 

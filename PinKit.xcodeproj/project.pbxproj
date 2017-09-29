@@ -68,6 +68,10 @@
 		DAC5E9671EA1736A0019D5DC /* NSError+PinKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6590681E708F6200C97DCF /* NSError+PinKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAC7D2CE1E6DFF4A008F3320 /* PNKGetRecentPostsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DAC7D2CC1E6DFF4A008F3320 /* PNKGetRecentPostsRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAC7D2CF1E6DFF4A008F3320 /* PNKGetRecentPostsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC7D2CD1E6DFF4A008F3320 /* PNKGetRecentPostsRequest.m */; };
+		DAE79BC41F7E48FC0090D736 /* PNKBookmarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE79BC31F7E48FC0090D736 /* PNKBookmarkTests.m */; };
+		DAE79BC51F7E48FC0090D736 /* PNKBookmarkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE79BC31F7E48FC0090D736 /* PNKBookmarkTests.m */; };
+		DAE79BC81F7E497C0090D736 /* PNKNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE79BC71F7E497C0090D736 /* PNKNoteTests.m */; };
+		DAE79BC91F7E497C0090D736 /* PNKNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE79BC71F7E497C0090D736 /* PNKNoteTests.m */; };
 		DAF953EA1F5DC602002F317E /* RecorderSession.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF953E91F5DC602002F317E /* RecorderSession.framework */; };
 		DAF953EC1F5DC610002F317E /* RecorderSession.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF953EB1F5DC610002F317E /* RecorderSession.framework */; };
 		DAF953EE1F5DC6FD002F317E /* RecorderSession.framework in Copy Carthage Frameworks */ = {isa = PBXBuildFile; fileRef = DAF953EB1F5DC610002F317E /* RecorderSession.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -250,6 +254,8 @@
 		DAC5E9631EA1658F0019D5DC /* PNKHTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNKHTTP.m; sourceTree = "<group>"; };
 		DAC7D2CC1E6DFF4A008F3320 /* PNKGetRecentPostsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNKGetRecentPostsRequest.h; sourceTree = "<group>"; };
 		DAC7D2CD1E6DFF4A008F3320 /* PNKGetRecentPostsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNKGetRecentPostsRequest.m; sourceTree = "<group>"; };
+		DAE79BC31F7E48FC0090D736 /* PNKBookmarkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PNKBookmarkTests.m; sourceTree = "<group>"; };
+		DAE79BC71F7E497C0090D736 /* PNKNoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PNKNoteTests.m; sourceTree = "<group>"; };
 		DAE8F11F1F631C8E0085B953 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = SOURCE_ROOT; };
 		DAF953E91F5DC602002F317E /* RecorderSession.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecorderSession.framework; path = Carthage/Build/Mac/RecorderSession.framework; sourceTree = "<group>"; };
 		DAF953EB1F5DC610002F317E /* RecorderSession.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RecorderSession.framework; path = Carthage/Build/iOS/RecorderSession.framework; sourceTree = "<group>"; };
@@ -402,6 +408,7 @@
 				DA1058F11E74B503003B5042 /* PostsTests */,
 				DA1058F51E74B503003B5042 /* TagsTests */,
 				DA1058EE1E74B503003B5042 /* NotesTests */,
+				DAE79BC61F7E49060090D736 /* TypesTests */,
 				DAFE72551EA3E38400BBF1B3 /* Supporting Files */,
 			);
 			path = PinKitTests;
@@ -517,6 +524,15 @@
 				DAF953E91F5DC602002F317E /* RecorderSession.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAE79BC61F7E49060090D736 /* TypesTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAE79BC31F7E48FC0090D736 /* PNKBookmarkTests.m */,
+				DAE79BC71F7E497C0090D736 /* PNKNoteTests.m */,
+			);
+			path = TypesTests;
 			sourceTree = "<group>";
 		};
 		DAFE72281EA3E0CB00BBF1B3 /* Supporting Files */ = {
@@ -765,11 +781,13 @@
 				DAFE721C1EA3752300BBF1B3 /* PNKDateFormatterTests.m in Sources */,
 				DA7370D81E75855900A17C36 /* PNKGetAllPostsRequestTests.m in Sources */,
 				DA1058FA1E74B503003B5042 /* PNKGetNoteRequestTests.m in Sources */,
+				DAE79BC41F7E48FC0090D736 /* PNKBookmarkTests.m in Sources */,
 				DA1058ED1E74B4F3003B5042 /* PNKRequestTestCase.m in Sources */,
 				DA1059011E74B503003B5042 /* PNKGetTagsRequestTests.m in Sources */,
 				DAFE721E1EA378FA00BBF1B3 /* PNKMapTests.m in Sources */,
 				DA1059021E74B503003B5042 /* PNKRenameTagRequestTests.m in Sources */,
 				DA10589E1E74A92A003B5042 /* PNKAuthenticationRequestTests.m in Sources */,
+				DAE79BC81F7E497C0090D736 /* PNKNoteTests.m in Sources */,
 				DA1058FF1E74B503003B5042 /* PNKDeleteTagRequestTests.m in Sources */,
 				DA8A0CCC1E6C0E9800802315 /* PNKGetLastUpdateRequestTests.m in Sources */,
 				DA1058FD1E74B503003B5042 /* PNKDeletePostRequestTests.m in Sources */,
@@ -851,11 +869,13 @@
 				DAFE72A11EA3EBD900BBF1B3 /* PNKGetAllPostsRequestTests.m in Sources */,
 				DAFE72A71EA3EBE600BBF1B3 /* PNKGetSecretRSSKeyRequestTests.m in Sources */,
 				DAFE72A41EA3EBE000BBF1B3 /* PNKAddPostRequestTests.m in Sources */,
+				DAE79BC51F7E48FC0090D736 /* PNKBookmarkTests.m in Sources */,
 				DAFE72A21EA3EBDB00BBF1B3 /* PNKGetRecentPostsRequestTests.m in Sources */,
 				DAFE72A91EA3EBEA00BBF1B3 /* PNKAuthenticationRequestTests.m in Sources */,
 				DAFE72A51EA3EBE200BBF1B3 /* PNKMapTests.m in Sources */,
 				DAFE72A31EA3EBDD00BBF1B3 /* PNKDeletePostRequestTests.m in Sources */,
 				DAFE729D1EA3EBD100BBF1B3 /* PNKRenameTagRequestTests.m in Sources */,
+				DAE79BC91F7E497C0090D736 /* PNKNoteTests.m in Sources */,
 				DAFE72A81EA3EBE800BBF1B3 /* PNKGetLastUpdateRequestTests.m in Sources */,
 				DAFE729C1EA3EBD000BBF1B3 /* PNKGetNoteRequestTests.m in Sources */,
 				DAFE729F1EA3EBD500BBF1B3 /* PNKGetSuggestedTagsRequestTests.m in Sources */,

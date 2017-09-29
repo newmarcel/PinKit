@@ -7,8 +7,11 @@
 //
 
 #import "PNKBookmark.h"
+#import "PinKitMacros.h"
 #import "PNKPinboardBool.h"
 #import "NSDateFormatter+PNKPinboard.h"
+
+static NSString * const PNKBookmarkTagsSeparator = @" ";
 
 @interface PNKBookmark ()
 @property (nonatomic, readwrite) NSString *title;
@@ -48,31 +51,88 @@
     return self;
 }
 
+#pragma mark - Equality
+
+- (BOOL)isEqual:(id)object
+{
+    PNKBookmark *rhs = (PNKBookmark *)object;
+    if(self == rhs)
+    {
+        return YES;
+    }
+    if(!rhs || ![rhs isKindOfClass:[self class]])
+    {
+        return NO;
+    }
+    return [self isEqualToBookmark:rhs];
+}
+
+- (BOOL)isEqualToBookmark:(PNKBookmark *)bookmark
+{
+    NSParameterAssert(bookmark);
+    
+    return PNKIsEqual(self.title, bookmark.title)
+        && PNKIsEqual(self.URL, bookmark.URL)
+        && PNKIsEqual(self.descriptionText, bookmark.descriptionText);
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)mutableCopyWithZone:(NSZone *)zone
+{
+    PNKMutableBookmark *mutableCopy = [[PNKMutableBookmark alloc] initWithTitle:self.title
+                                                                            URL:[self.URL copy]
+                                                                descriptionText:self.descriptionText
+                                                                           tags:[self.tags copy]
+                                       ];
+    mutableCopy.hashText = self.hashText;
+    mutableCopy.meta = self.meta;
+    mutableCopy.createdAt = [self.createdAt copy];
+    mutableCopy.shared = [self isShared];
+    mutableCopy.read = [self isRead];
+    return mutableCopy;
+}
+
 @end
 
 @implementation PNKBookmark (PNKDictionaryRepresentable)
+
+#define kKeyTitle @"description"
+#define kKeyDescription @"extended"
+#define kKeyHash @"hash"
+#define kKeyURL @"href"
+#define kKeyMeta @"meta"
+#define kKeyTags @"tags"
+#define kKeyCreatedAt @"time"
+#define kKeyShared @"shared"
+#define kKeyUnread @"toread"
 
 - (instancetype)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary
 {
     NSParameterAssert(dictionary);
     
-    NSString *title = dictionary[@"description"];
-    NSString *descr = dictionary[@"extended"];
-    NSString *hashString = dictionary[@"hash"];
-    NSURL *URL = [NSURL URLWithString:dictionary[@"href"]];
-    NSString *meta = dictionary[@"meta"];
+    NSString *title = dictionary[kKeyTitle];
+    NSString *descr = dictionary[kKeyDescription];
+    NSString *hashString = dictionary[kKeyHash];
+    NSURL *URL = [NSURL URLWithString:dictionary[kKeyURL]];
+    NSString *meta = dictionary[kKeyMeta];
     NSArray<NSString *> *tags;
-    if(dictionary[@"tags"] != nil && ![dictionary[@"tags"] isEqualToString:@""])
+    if(dictionary[kKeyTags] != nil && ![dictionary[kKeyTags] isEqualToString:@""])
     {
-        tags = [dictionary[@"tags"] componentsSeparatedByString:@" "];
+        tags = [dictionary[kKeyTags] componentsSeparatedByString:PNKBookmarkTagsSeparator];
     }
     else
     {
         tags = @[];
     }
-    NSString *dateString = dictionary[@"time"];
-    BOOL shared = PNKBoolFromPinboardBoolString(dictionary[@"shared"]);
-    BOOL unread = PNKBoolFromPinboardBoolString(dictionary[@"toread"]);
+    NSString *dateString = dictionary[kKeyCreatedAt];
+    BOOL shared = PNKBoolFromPinboardBoolString(dictionary[kKeyShared]);
+    BOOL unread = PNKBoolFromPinboardBoolString(dictionary[kKeyUnread]);
     
     PNKBookmark *bookmark = [PNKBookmark new];
     bookmark.title = title;
@@ -86,6 +146,22 @@
     bookmark.read = !unread;
     
     return bookmark;
+}
+
+- (NSDictionary<NSString *,id> *)dictionaryRepresentation
+{
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    dict[kKeyTitle] = self.title;
+    if(self.descriptionText != nil) { dict[kKeyDescription] = self.descriptionText; }
+    if(![self.hashText isEqualToString:@""]) { dict[kKeyHash] = self.hashText; }
+    dict[kKeyURL] = self.URL.absoluteString;
+    if(self.meta != nil) { dict[kKeyMeta] = self.meta; }
+    dict[kKeyTags] = [self.tags componentsJoinedByString:PNKBookmarkTagsSeparator];
+    dict[kKeyCreatedAt] = [NSDateFormatter.pnk_UTCDateFormatter stringFromDate:self.createdAt];
+    dict[kKeyShared] = PNKPinboardBoolStringFromBool([self isShared]);
+    dict[kKeyUnread] = PNKPinboardBoolStringFromBool(![self isRead]);
+    
+    return [NSDictionary dictionaryWithDictionary:dict];
 }
 
 @end

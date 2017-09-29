@@ -49,6 +49,19 @@
     XCTAssertTrue([self.client isAuthenticated]);
 }
 
+- (void)testResetCredentials
+{
+    NSString *username = @"token";
+    NSString *token = @"username";
+    [self.client setUsername:username token:token];
+    XCTAssertTrue([self.client isAuthenticated]);
+    
+    [self.client resetCredentials];
+    XCTAssertFalse([self.client isAuthenticated]);
+    XCTAssertNil(self.client.username);
+    XCTAssertNil(self.client.token);
+}
+
 - (void)testAuthenticationToken
 {
     XCTAssertNil([self.client performSelector:@selector(authenticationToken)]);  // test the private implementation
