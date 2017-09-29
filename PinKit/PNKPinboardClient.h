@@ -85,6 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUsername:(NSString *)username token:(NSString *)token NS_SWIFT_NAME(set(username:token:));
 
 /**
+ Unsets the `username` and `token` values, so `authenticated` will return false.
+ */
+- (void)resetCredentials;
+
+/**
  Performs a requests against the Pinboard API.
  
  This method injects authentication credentials into the request

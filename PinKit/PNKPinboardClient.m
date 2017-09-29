@@ -100,6 +100,12 @@ static inline NSURL *PNKPinboardBaseURL(void);
     self.token = token;
 }
 
+- (void)resetCredentials
+{
+    self.username = nil;
+    self.token = nil;
+}
+
 - (BOOL)isAuthenticated
 {
     return (self.username != nil && self.token != nil);
