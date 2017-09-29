@@ -24,14 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Equality
 
 /**
- Returns a Boolean value that indicates whether the receiver and a given object are equal.
- 
- @param object The object to be compared to the receiver. May be nil, in which case this method returns NO.
- @return YES if object is equal to the receiver.
- */
-- (BOOL)isEqual:(nullable id)object;
-
-/**
  Returns a Boolean value that indicates whether the receiver and the given note are equal.
  
  @param note A note to be compared to the receiver.
