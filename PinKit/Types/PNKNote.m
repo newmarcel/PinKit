@@ -25,18 +25,25 @@
 
 @implementation PNKNote (PNKDictionaryRepresentable)
 
+#define kKeyIdentifier @"id"
+#define kKeyTitle @"title"
+#define kKeyHash @"hash"
+#define kKeyCreatedAt @"created_at"
+#define kKeyUpdatedAt @"updated_at"
+#define kKeyLength @"length"
+#define kKeyText @"text"
+
 - (instancetype)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary
 {
     NSParameterAssert(dictionary);
     
-    NSString *identifier = dictionary[@"id"];
-    NSString *title = dictionary[@"title"];
-    NSString *hashText = dictionary[@"hash"];
-    NSString *createdAtString = dictionary[@"created_at"];
-    NSString *updatedAtString = dictionary[@"updated_at"];
-    NSString *lengthString = dictionary[@"length"];
-    
-    NSString *text = dictionary[@"text"];
+    NSString *identifier = dictionary[kKeyIdentifier];
+    NSString *title = dictionary[kKeyTitle];
+    NSString *hashText = dictionary[kKeyHash];
+    NSString *createdAtString = dictionary[kKeyCreatedAt];
+    NSString *updatedAtString = dictionary[kKeyUpdatedAt];
+    NSString *lengthString = dictionary[kKeyLength];
+    NSString *text = dictionary[kKeyText];
     
     NSDateFormatter *dateFormatter = NSDateFormatter.pnk_notesDateFormatter;
     
@@ -50,6 +57,22 @@
     note.text = text;
     
     return note;
+}
+
+- (NSDictionary<NSString *,id> *)dictionaryRepresentation
+{
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    dict[kKeyIdentifier] = self.identifier;
+    dict[kKeyTitle] = self.title;
+    dict[kKeyHash] = self.hashText;
+    
+    NSDateFormatter *dateFormatter = NSDateFormatter.pnk_notesDateFormatter;
+    dict[kKeyCreatedAt] = [dateFormatter stringFromDate:self.createdAt];
+    dict[kKeyUpdatedAt] = [dateFormatter stringFromDate:self.updatedAt];
+    dict[kKeyLength] = @(self.length);
+    dict[kKeyText] = self.text;
+    
+    return [NSDictionary dictionaryWithDictionary:dict];
 }
 
 @end

@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface PNKNote (PNKDictionaryRepresentable)
+@property (nonatomic, readonly) NSDictionary<NSString *, id> *dictionaryRepresentation;
 - (instancetype)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary;
 @end
 
