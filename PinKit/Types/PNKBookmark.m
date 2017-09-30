@@ -13,6 +13,8 @@
 
 static NSString * const PNKBookmarkTagsSeparator = @" ";
 
+static inline NSURL *PNKSanitizedURLFromString(NSString *string);
+
 @interface PNKBookmark ()
 @property (nonatomic, readwrite) NSString *title;
 @property (nonatomic, readwrite, nullable) NSString *descriptionText;
@@ -119,7 +121,7 @@ static NSString * const PNKBookmarkTagsSeparator = @" ";
     NSString *title = dictionary[kKeyTitle];
     NSString *descr = dictionary[kKeyDescription];
     NSString *hashString = dictionary[kKeyHash];
-    NSURL *URL = [NSURL URLWithString:dictionary[kKeyURL]];
+    NSURL *URL = PNKSanitizedURLFromString(dictionary[kKeyURL]);
     NSString *meta = dictionary[kKeyMeta];
     NSArray<NSString *> *tags;
     if(dictionary[kKeyTags] != nil && ![dictionary[kKeyTags] isEqualToString:@""])
@@ -169,3 +171,9 @@ static NSString * const PNKBookmarkTagsSeparator = @" ";
 @implementation PNKMutableBookmark
 @dynamic title, descriptionText, hashText, URL, meta, tags, createdAt, shared, read;
 @end
+
+static inline NSURL *PNKSanitizedURLFromString(NSString *string) {
+    NSCharacterSet *charset = [NSCharacterSet URLQueryAllowedCharacterSet];
+    NSString *sanitizedURLString = [string stringByAddingPercentEncodingWithAllowedCharacters:charset];
+    return [NSURL URLWithString:sanitizedURLString];
+}
