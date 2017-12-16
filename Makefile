@@ -14,10 +14,12 @@ clean:
 	rm -rf $(DOCS_DIR)
 
 init:
-	HOMEBREW_NO_AUTO_UPDATE=1 brew install carthage
+	gem install bundler
+	bundle install
+	brew install carthage
 
 bootstrap:
-	carthage bootstrap --use-ssh --cache-builds
+	carthage bootstrap
 
 test:
 	fastlane scan \
@@ -50,7 +52,6 @@ jazzy:
 	--framework-root . \
 	--module $(NAME) \
 	--hide-documentation-coverage \
-	--no-download-badge \
 	--sdk macosx \
 	--exclude "$(NAME)Tests" \
 	--skip-undocumented \
