@@ -29,7 +29,7 @@
     };
     [self.client performRequest:addPostRequest];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 - (void)testAddPostRequestWithoutReplacement
@@ -58,7 +58,7 @@
     };
     [self.client performRequest:addPostRequest];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 @end

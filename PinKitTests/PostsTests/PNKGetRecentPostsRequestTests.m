@@ -28,7 +28,7 @@
     };
     [self.client performRequest:request];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 - (void)testGetRecentPostsRequestForTags
@@ -52,7 +52,7 @@
     };
     [self.client performRequest:request];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 - (void)testGetRecentPostsRequestWithCount
@@ -73,7 +73,7 @@
     };
     [self.client performRequest:request];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 - (void)testGetRecentPostsRequestForTagsAndCount
@@ -101,7 +101,7 @@
     };
     [self.client performRequest:request];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 @end
