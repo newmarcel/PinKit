@@ -1,5 +1,5 @@
 //
-//  PinKitMacros.h
+//  PNKDefines.h
 //  PinKit
 //
 //  Created by Marcel Dierkes on 02.01.17.

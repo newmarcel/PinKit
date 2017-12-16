@@ -7,7 +7,7 @@
 //
 
 #import "PNKNote.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 #import "NSDateFormatter+PNKPinboard.h"
 
 @interface PNKNote ()

@@ -7,7 +7,7 @@
 //
 
 #import "PNKAuthenticationRequest.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 
 @interface PNKAuthenticationRequest ()
 @property (copy, nonatomic, readwrite) NSString *username;

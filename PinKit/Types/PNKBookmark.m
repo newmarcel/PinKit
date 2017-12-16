@@ -7,7 +7,7 @@
 //
 
 #import "PNKBookmark.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 #import "PNKPinboardBool.h"
 #import "NSDateFormatter+PNKPinboard.h"
 

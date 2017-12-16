@@ -7,7 +7,7 @@
 //
 
 #import "PNKPinboardClient.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 #import "NSURLSession+PinKit.h"
 #import "NSError+PinKit.h"
 #import "PNKRequest.h"

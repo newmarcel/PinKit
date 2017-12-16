@@ -237,7 +237,7 @@
 		DA8A0CCE1E6C148900802315 /* PNKGetLastUpdateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNKGetLastUpdateRequest.h; sourceTree = "<group>"; };
 		DA8A0CCF1E6C148900802315 /* PNKGetLastUpdateRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNKGetLastUpdateRequest.m; sourceTree = "<group>"; };
 		DA96A4591EABA68200924455 /* Cassettes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Cassettes.bundle; sourceTree = "<group>"; };
-		DAA333BE1E1AA90F00468A9E /* PinKitMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PinKitMacros.h; sourceTree = "<group>"; };
+		DAA333BE1E1AA90F00468A9E /* PNKDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PNKDefines.h; sourceTree = "<group>"; };
 		DAA333C01E1AB13400468A9E /* NSURLSession+PinKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+PinKit.h"; sourceTree = "<group>"; };
 		DAA333C11E1AB13400468A9E /* NSURLSession+PinKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSURLSession+PinKit.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		DAA333CC1E1ACC9300468A9E /* PNKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNKRequest.h; sourceTree = "<group>"; };
@@ -482,7 +482,7 @@
 				DAB598A31E1A8773003EA11D /* PinKit.h */,
 				DA3E3C121E1A9D0400F69681 /* PNKPinboardClient.h */,
 				DA3E3C131E1A9D0400F69681 /* PNKPinboardClient.m */,
-				DAA333BE1E1AA90F00468A9E /* PinKitMacros.h */,
+				DAA333BE1E1AA90F00468A9E /* PNKDefines.h */,
 				DAA333C51E1ABFB000468A9E /* PNKRequest */,
 				DA026B281E1BB9B80085ADA9 /* Types */,
 				DAA333BF1E1AB12200468A9E /* Extensions */,
