@@ -30,7 +30,7 @@
     };
     [self.client performRequest:renameRequest];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 @end

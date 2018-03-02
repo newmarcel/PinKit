@@ -33,7 +33,7 @@
     };
     [self.client performRequest:request];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 - (void)testAuthenticationRequestFailed
@@ -53,7 +53,7 @@
     };
     [self.client performRequest:request];
     
-    [self waitForExpectationsWithTimeout:5.0 handler:nil];
+    [self waitForExpectations:@[expectation] timeout:5.0];
 }
 
 @end

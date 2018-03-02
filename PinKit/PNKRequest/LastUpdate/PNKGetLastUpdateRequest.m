@@ -7,7 +7,7 @@
 //
 
 #import "PNKGetLastUpdateRequest.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 #import "NSDateFormatter+PNKPinboard.h"
 
 @implementation PNKGetLastUpdateRequest

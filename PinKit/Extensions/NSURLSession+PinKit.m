@@ -7,9 +7,8 @@
 //
 
 #import "NSURLSession+PinKit.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 #import "PNKRequest.h"
-
 
 @implementation NSURLSession (PinKit)
 

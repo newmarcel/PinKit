@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSErrorDomain PinKitErrorDomain;
+FOUNDATION_EXPORT NSErrorDomain PinKitErrorDomain;
 
 typedef NS_ENUM(NSUInteger, PNKError) {
     PNKErrorUnknown = -1,

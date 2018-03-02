@@ -7,6 +7,7 @@
 //
 
 #import "PNKRequest.h"
+#import "PNKDefines.h"
 #import "NSURLSession+PinKit.h"
 #import "NSURL+PinKit.h"
 
@@ -29,7 +30,7 @@
 
 - (NSDictionary<NSString *, NSString *> *)parameters
 {
-    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    PNKAuto parameters = [NSMutableDictionary new];
     parameters[@"format"] = self.format;
     if(self.authenticationToken)
     {
@@ -48,10 +49,10 @@
     NSParameterAssert(baseURL);
     
     NSString *method = self.HTTPMethod;
-    NSURL *URL = [[NSURL URLWithString:self.endpoint relativeToURL:baseURL]
-                  pnk_URLByAppendingQueryItems:[self parametersAsURLQueryItems]];
+    PNKAuto URL = [[NSURL URLWithString:self.endpoint relativeToURL:baseURL]
+                   pnk_URLByAppendingQueryItems:[self parametersAsURLQueryItems]];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
+    PNKAuto request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = method;
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
@@ -60,11 +61,11 @@
 
 - (NSArray<NSURLQueryItem *> *)parametersAsURLQueryItems
 {
-    NSDictionary *parameters = self.parameters;
-    __block NSMutableArray *items = [NSMutableArray new];
+    PNKAuto parameters = self.parameters;
+    __block PNKAuto items = [NSMutableArray new];
     [parameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        NSString *value = [NSString stringWithFormat:@"%@", obj];
-        NSURLQueryItem *item = [NSURLQueryItem queryItemWithName:key value:value];
+        PNKAuto value = [NSString stringWithFormat:@"%@", obj];
+        PNKAuto item = [NSURLQueryItem queryItemWithName:key value:value];
         [items addObject:item];
     }];
     

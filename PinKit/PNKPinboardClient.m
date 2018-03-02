@@ -7,7 +7,7 @@
 //
 
 #import "PNKPinboardClient.h"
-#import "PinKitMacros.h"
+#import "PNKDefines.h"
 #import "NSURLSession+PinKit.h"
 #import "NSError+PinKit.h"
 #import "PNKRequest.h"
@@ -40,7 +40,7 @@ static inline NSURL *PNKPinboardBaseURL(void);
 
 - (instancetype)init
 {
-    NSURLSession *session = NSURLSession.pinboardURLSession;
+    PNKAuto session = NSURLSession.pinboardURLSession;
     return [self initWithSession:session];
 }
 
@@ -56,15 +56,15 @@ static inline NSURL *PNKPinboardBaseURL(void);
     NSParameterAssert(request);
     
     request.authenticationToken = [self authenticationToken];
-    NSURLRequest *URLRequest = [request URLRequestRelativeToURL:PNKPinboardBaseURL()];
-    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:URLRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    PNKAuto URLRequest = [request URLRequestRelativeToURL:PNKPinboardBaseURL()];
+    PNKAuto task = [self.session dataTaskWithRequest:URLRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSError *JSONError;
         NSDictionary *object;
         if(data)
         {
             object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&JSONError];
         }
-        NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+        PNKAuto HTTPResponse = (NSHTTPURLResponse *)response;
         
         if(error == nil && JSONError != nil)
         {
@@ -79,7 +79,7 @@ static inline NSURL *PNKPinboardBaseURL(void);
         
         if(!PNKHTTPStatusCodeIsSuccess(HTTPResponse.statusCode))
         {
-            NSError *error = [NSError pinKitErrorWithCode:HTTPResponse.statusCode];
+            PNKAuto error = [NSError pinKitErrorWithCode:HTTPResponse.statusCode];
             [request handleCompletionWithJSONObject:object response:HTTPResponse error:error];
             return;
         }
@@ -119,7 +119,7 @@ static inline NSURL *PNKPinboardBaseURL(void);
     
     self.username = username;
     
-    PNKAuthenticationRequest *authRequest = [[PNKAuthenticationRequest alloc] initWithUsername:username password:password];
+    PNKAuto authRequest = [[PNKAuthenticationRequest alloc] initWithUsername:username password:password];
     authRequest.completionHandler = ^(NSString *token, NSError *error){
         if(error != nil || token == nil)
         {

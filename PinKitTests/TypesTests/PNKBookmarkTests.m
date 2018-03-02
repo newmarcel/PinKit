@@ -8,6 +8,7 @@
 
 @import XCTest;
 @import PinKit;
+#import "PNKDefines.h"
 
 @interface PNKBookmarkTests : XCTestCase
 @end
@@ -52,11 +53,11 @@
 
 - (void)testDictionaryRepresentation
 {
-    __auto_type bookmark = [[PNKMutableBookmark alloc] initWithTitle:@"Test Bookmark"
-                                                                 URL:[NSURL URLWithString:@"http://example.com/test"]
-                                                     descriptionText:@"A handy test bookmark."
-                                                                tags:@[@"test", @"bookmark", @"unit-testing"]
-                            ];
+    PNKAuto bookmark = [[PNKMutableBookmark alloc] initWithTitle:@"Test Bookmark"
+                                                             URL:[NSURL URLWithString:@"http://example.com/test"]
+                                                 descriptionText:@"A handy test bookmark."
+                                                            tags:@[@"test", @"bookmark", @"unit-testing"]
+                        ];
     bookmark.createdAt = [NSDate dateWithTimeIntervalSince1970:10];
     bookmark.shared = NO;
     NSDictionary *dict = [bookmark dictionaryRepresentation];
