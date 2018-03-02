@@ -19,6 +19,8 @@
     #define PNKLog(args...)
 #endif
 
+#define PNKAuto __auto_type const
+
 #define PNKUnimplemented() @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Missing implementation" userInfo:nil]
 
 NS_INLINE BOOL PNKIsEqual(id _Nullable lhs, id _Nullable rhs)

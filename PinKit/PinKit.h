@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for PinKit.
+/// Project version number for PinKit.
 FOUNDATION_EXPORT double PinKitVersionNumber;
 
-//! Project version string for PinKit.
+/// Project version string for PinKit.
 FOUNDATION_EXPORT const unsigned char PinKitVersionString[];
 
 #import <PinKit/PNKPinboardClient.h>
