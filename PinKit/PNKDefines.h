@@ -19,12 +19,9 @@
     #define PNKLog(args...)
 #endif
 
-
 #define PNKUnimplemented() @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"Missing implementation" userInfo:nil]
 
-#define fatalError(message) @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:(NSString *)(message) userInfo:nil]
-
-static inline BOOL PNKIsEqual(id _Nullable lhs, id _Nullable rhs)
+NS_INLINE BOOL PNKIsEqual(id _Nullable lhs, id _Nullable rhs)
 {
     if(lhs == nil)
     {
