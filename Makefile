@@ -16,7 +16,7 @@ clean:
 init:
 	gem install bundler
 	bundle install
-	brew install carthage
+	brew reinstall carthage
 
 bootstrap:
 	carthage bootstrap
