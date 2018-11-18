@@ -10,7 +10,7 @@
 
 @implementation NSArray (PNKMap)
 
-- (NSArray *)pnk_map:(id(^)(id element))transform
+- (NSArray *)pnk_map:(NS_NOESCAPE id(^)(id element))transform
 {
     NSArray *collection = self;
     NSMutableArray *results = [NSMutableArray new];
@@ -29,7 +29,7 @@
     return [NSArray arrayWithArray:results];
 }
 
-- (NSArray *)pnk_flatMap:(id(^)(id element))transform
+- (NSArray *)pnk_flatMap:(NS_NOESCAPE id(^)(id element))transform
 {
     NSArray *collection = self;
     NSMutableArray *results = [NSMutableArray new];
