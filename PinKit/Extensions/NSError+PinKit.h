@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSErrorDomain PinKitErrorDomain;
 
 typedef NS_ENUM(NSUInteger, PNKError) {
-    PNKErrorUnknown = -1,
+    PNKErrorUnknown = 600,
 };
 
 @interface NSError (PinKit)
