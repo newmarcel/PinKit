@@ -695,7 +695,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PNK;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Marcel Dierkes";
 				TargetAttributes = {
 					DA8A0CB31E6C0B3D00802315 = {
@@ -721,10 +721,11 @@
 			};
 			buildConfigurationList = DAB5989A1E1A8773003EA11D /* Build configuration list for PBXProject "PinKit" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = DAB598961E1A8773003EA11D;
 			productRefGroup = DAB598A11E1A8773003EA11D /* Products */;
@@ -942,6 +943,7 @@
 			baseConfigurationReference = DAE8F11F1F631C8E0085B953 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1000,6 +1002,7 @@
 			baseConfigurationReference = DAE8F11F1F631C8E0085B953 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
