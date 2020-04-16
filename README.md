@@ -1,6 +1,6 @@
 # PinKit
 
-[![Build Status](https://travis-ci.org/newmarcel/PinKit.svg)](https://travis-ci.org/newmarcel/PinKit)
+![Test](https://github.com/newmarcel/PinKit/workflows/Test/badge.svg?branch=master)
 
 A Pinboard API client for iOS, macOS, etc.
 
