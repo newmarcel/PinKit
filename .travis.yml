@@ -1,9 +1,0 @@
-language: objective-c
-osx_image: xcode11.4
-rvm:
-- 2.6
-install:
-  - make init
-script:
-  - make bootstrap
-  - make test
