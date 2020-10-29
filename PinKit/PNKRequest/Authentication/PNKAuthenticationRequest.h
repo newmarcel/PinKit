@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PNKRequest.h"
+#import <PinKit/PNKRequest.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

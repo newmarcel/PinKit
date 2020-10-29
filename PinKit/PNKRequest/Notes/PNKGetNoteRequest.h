@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PNKRequest.h"
-#import "PNKNote.h"
+#import <PinKit/PNKRequest.h>
+#import <PinKit/PNKNote.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

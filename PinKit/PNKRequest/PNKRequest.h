@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PNKHTTP.h"
+#import <PinKit/PNKHTTP.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
