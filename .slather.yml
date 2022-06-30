@@ -1,8 +1,0 @@
-coverage_service: cobertura_xml
-xcodeproj: PinKit.xcodeproj
-scheme: PinKit (macOS)
-output_directory: build/Reports
-build_directory: build
-ignore:
-  - docs
-  - PinKitTests/*

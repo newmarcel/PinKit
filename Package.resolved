@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "RecorderSession",
+        "repositoryURL": "https://github.com/newmarcel/RecorderSession.git",
+        "state": {
+          "branch": null,
+          "revision": "1ac904f53a90c14610de4725c69e3b2e7f25073c",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
