@@ -1,6 +1,6 @@
 # PinKit
 
-![Test](https://github.com/newmarcel/PinKit/workflows/Test/badge.svg?branch=master)
+![Test](https://github.com/newmarcel/PinKit/workflows/Test/badge.svg?branch=main)
 
 A Pinboard API client for iOS, macOS, etc.
 
