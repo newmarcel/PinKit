@@ -3,7 +3,7 @@ name: Test
 on:
   push:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -11,7 +11,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Bootstrap
-      run: make bootstrap
     - name: Run tests
       run: make test
